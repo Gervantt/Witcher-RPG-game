@@ -1,5 +1,8 @@
 package main.java.com.narxoz.rpg.character;
 
+import main.java.com.narxoz.rpg.equipment.Armor;
+import main.java.com.narxoz.rpg.equipment.Weapon;
+
 public interface Character {
     String getName();
     int getHealth();
@@ -15,4 +18,7 @@ public interface Character {
 
     void displayStats();
     void useSpecialAbility();
+
+    void equipWeapon(Weapon weapon);
+    void equipArmor(Armor armor);
 }

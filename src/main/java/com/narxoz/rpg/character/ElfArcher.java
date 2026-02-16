@@ -1,11 +1,16 @@
 package main.java.com.narxoz.rpg.character;
 
+import main.java.com.narxoz.rpg.equipment.Armor;
+import main.java.com.narxoz.rpg.equipment.Weapon;
+
 public class ElfArcher implements Character {
     private final String name;
     private int health;
     private int strength;
     private int magic;
     private int agility;
+    private Weapon weapon;
+    private Armor armor;
 
     public ElfArcher(String name) {
         this.name = name;
@@ -79,5 +84,23 @@ public class ElfArcher implements Character {
         System.out.println("=== Strength: " + strength+" ===");
         System.out.println("=== Agility: " + agility+" ===");
         System.out.println("=== Magic: " + magic +" ===");
+    }
+
+    @Override
+    public void equipWeapon(Weapon weapon) {
+        System.out.println("=== "+name+" equipped new weapon! ===");
+        System.out.println("=== "+weapon.getWeaponInfo()+" ===");
+        this.weapon = weapon;
+        strength += weapon.getDamage();
+        System.out.println("=== STRENGTH INCREASED: "+strength+" ===");
+    }
+
+    @Override
+    public void equipArmor(Armor armor) {
+        System.out.println("=== "+name+" equipped new armor! ===");
+        System.out.println("=== "+armor.getArmorInfo()+" ===");
+        this.armor = armor;
+        health += armor.getDefence();
+        System.out.println("=== HEALTH INCREASED: "+health+" ===");
     }
 }
