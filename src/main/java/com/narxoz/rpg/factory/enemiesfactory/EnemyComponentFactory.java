@@ -1,4 +1,4 @@
-package main.java.com.narxoz.rpg.factory.abilitiesfactory;
+package main.java.com.narxoz.rpg.factory.enemiesfactory;
 
 import main.java.com.narxoz.rpg.combat.Ability;
 import main.java.com.narxoz.rpg.combat.LootTable;
