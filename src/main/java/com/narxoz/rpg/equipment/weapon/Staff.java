@@ -1,15 +1,14 @@
-package main.java.com.narxoz.rpg.equipment;
+package main.java.com.narxoz.rpg.equipment.weapon;
 
-
-public class SteelSword implements Weapon{
+public class Staff implements Weapon {
     private int damage;
     private String description;
     private WeaponType type;
 
-    public SteelSword() {
-        damage = 100;
-        description = "A Witcher's steel blade. Balanced, sharp, and made to cut through claws and armor.";
-        type = WeaponType.MEDIEVAL;
+    public Staff() {
+        damage = 50;
+        description = "A mage staff that boosts spell power. Helps you focus and cast stronger magic.";
+        type = WeaponType.MAGICAL;
     }
 
     @Override
@@ -31,5 +30,4 @@ public class SteelSword implements Weapon{
     public void setDamage(int damage) {
         this.damage = damage;
     }
-
 }

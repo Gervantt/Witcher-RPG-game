@@ -1,8 +1,8 @@
 package main.java.com.narxoz.rpg;
 
 import main.java.com.narxoz.rpg.character.Character;
-import main.java.com.narxoz.rpg.equipment.Armor;
-import main.java.com.narxoz.rpg.equipment.Weapon;
+import main.java.com.narxoz.rpg.equipment.armor.Armor;
+import main.java.com.narxoz.rpg.equipment.weapon.Weapon;
 import main.java.com.narxoz.rpg.factory.characterfactory.CharacterFactory;
 import main.java.com.narxoz.rpg.factory.equipmentfactory.EquipmentFactory;
 import main.java.com.narxoz.rpg.factory.equipmentfactory.MedievalEquipmentFactory;

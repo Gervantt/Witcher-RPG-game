@@ -1,10 +1,10 @@
 package main.java.com.narxoz.rpg.factory.equipmentfactory;
 
 
-import main.java.com.narxoz.rpg.equipment.Armor;
-import main.java.com.narxoz.rpg.equipment.CrossBow;
-import main.java.com.narxoz.rpg.equipment.FelineSet;
-import main.java.com.narxoz.rpg.equipment.Weapon;
+import main.java.com.narxoz.rpg.equipment.armor.Armor;
+import main.java.com.narxoz.rpg.equipment.weapon.CrossBow;
+import main.java.com.narxoz.rpg.equipment.armor.FelineSet;
+import main.java.com.narxoz.rpg.equipment.weapon.Weapon;
 
 public class RangerEquipmentFactory implements EquipmentFactory {
 

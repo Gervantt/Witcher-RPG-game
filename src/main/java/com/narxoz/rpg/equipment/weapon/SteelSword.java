@@ -1,15 +1,15 @@
-package main.java.com.narxoz.rpg.equipment;
+package main.java.com.narxoz.rpg.equipment.weapon;
 
-public class CrossBow implements Weapon {
 
+public class SteelSword implements Weapon {
     private int damage;
     private String description;
     private WeaponType type;
 
-    public CrossBow() {
-        damage = 75;
-        description = "An elven crossbow made for fast shots. Light in the hands, deadly from far away.";
-        type = WeaponType.RANGER;
+    public SteelSword() {
+        damage = 100;
+        description = "A Witcher's steel blade. Balanced, sharp, and made to cut through claws and armor.";
+        type = WeaponType.MEDIEVAL;
     }
 
     @Override
@@ -31,4 +31,5 @@ public class CrossBow implements Weapon {
     public void setDamage(int damage) {
         this.damage = damage;
     }
+
 }
