@@ -72,7 +72,7 @@ public class EnemyDirector {
                 .withDefence(130)
                 .withAgility(95)
                 .withFactory(new WildHuntFactory())
-                .withLootTable(new WildHuntLootTable())       // override factory loot
+                .withLootTable(new WildHuntLootTable())
                 .withLoreDescription("King of the Wild Hunt. Commands spectral riders who traverse worlds hunting Elder Blood. Murdered King Auberon to seize the throne of Aen Elle.")
                 .addPhase("Spectral Assault — rapid frost sword strikes and portal dashes")
                 .addPhase("Rider Summons — calls two Wild Hunt warriors to fight alongside him")

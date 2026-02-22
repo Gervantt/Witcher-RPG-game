@@ -1,9 +1,9 @@
 package main.java.com.narxoz.rpg.factory.equipmentfactory;
 
-import main.java.com.narxoz.rpg.equipment.Armor;
-import main.java.com.narxoz.rpg.equipment.GriffinSet;
-import main.java.com.narxoz.rpg.equipment.Staff;
-import main.java.com.narxoz.rpg.equipment.Weapon;
+import main.java.com.narxoz.rpg.equipment.armor.Armor;
+import main.java.com.narxoz.rpg.equipment.armor.GriffinSet;
+import main.java.com.narxoz.rpg.equipment.weapon.Staff;
+import main.java.com.narxoz.rpg.equipment.weapon.Weapon;
 
 public class MagicalEquipmentFactory implements EquipmentFactory {
 

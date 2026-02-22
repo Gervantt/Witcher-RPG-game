@@ -1,9 +1,9 @@
 package main.java.com.narxoz.rpg.factory.equipmentfactory;
 
-import main.java.com.narxoz.rpg.equipment.Armor;
-import main.java.com.narxoz.rpg.equipment.SteelSword;
-import main.java.com.narxoz.rpg.equipment.Weapon;
-import main.java.com.narxoz.rpg.equipment.WolvenSet;
+import main.java.com.narxoz.rpg.equipment.armor.Armor;
+import main.java.com.narxoz.rpg.equipment.weapon.SteelSword;
+import main.java.com.narxoz.rpg.equipment.weapon.Weapon;
+import main.java.com.narxoz.rpg.equipment.armor.WolvenSet;
 
 public class MedievalEquipmentFactory implements EquipmentFactory {
 

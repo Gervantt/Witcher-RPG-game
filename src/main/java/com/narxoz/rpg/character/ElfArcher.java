@@ -1,7 +1,7 @@
 package main.java.com.narxoz.rpg.character;
 
-import main.java.com.narxoz.rpg.equipment.Armor;
-import main.java.com.narxoz.rpg.equipment.Weapon;
+import main.java.com.narxoz.rpg.equipment.armor.Armor;
+import main.java.com.narxoz.rpg.equipment.weapon.Weapon;
 
 public class ElfArcher implements Character {
     private final String name;
