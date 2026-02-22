@@ -1,4 +1,4 @@
-package main.java.com.narxoz.rpg.combat;
+package main.java.com.narxoz.rpg.combat.loot;
 
 import java.util.List;
 

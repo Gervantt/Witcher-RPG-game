@@ -1,6 +1,6 @@
 package main.java.com.narxoz.rpg.combat.ability.frost;
 
-import main.java.com.narxoz.rpg.combat.Ability;
+import main.java.com.narxoz.rpg.combat.ability.Ability;
 
 public class AardFrostBlast implements Ability {
     private final String name = "Aard Frost Blast";

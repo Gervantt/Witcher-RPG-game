@@ -1,4 +1,4 @@
-package main.java.com.narxoz.rpg.combat;
+package main.java.com.narxoz.rpg.combat.ability;
 
 public interface Ability {
     String getName();

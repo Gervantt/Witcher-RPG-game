@@ -1,6 +1,6 @@
 package main.java.com.narxoz.rpg.combat.ability.igni;
 
-import main.java.com.narxoz.rpg.combat.Ability;
+import main.java.com.narxoz.rpg.combat.ability.Ability;
 
 public class DragonBreath implements Ability {
     private final String name = "Dragon Breath";

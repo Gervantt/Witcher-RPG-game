@@ -1,7 +1,5 @@
 package main.java.com.narxoz.rpg.combat.loot;
 
-import main.java.com.narxoz.rpg.combat.LootTable;
-
 import java.util.Arrays;
 import java.util.List;
 

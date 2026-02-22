@@ -1,7 +1,7 @@
 package main.java.com.narxoz.rpg.enemy;
 
-import main.java.com.narxoz.rpg.combat.Ability;
-import main.java.com.narxoz.rpg.combat.LootTable;
+import main.java.com.narxoz.rpg.combat.ability.Ability;
+import main.java.com.narxoz.rpg.combat.loot.LootTable;
 import main.java.com.narxoz.rpg.enemy.ai.AIBehavior;
 
 import java.util.List;

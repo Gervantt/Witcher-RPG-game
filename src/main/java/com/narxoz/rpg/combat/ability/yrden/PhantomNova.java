@@ -1,6 +1,6 @@
 package main.java.com.narxoz.rpg.combat.ability.yrden;
 
-import main.java.com.narxoz.rpg.combat.Ability;
+import main.java.com.narxoz.rpg.combat.ability.Ability;
 
 public class PhantomNova implements Ability {
     private final String name = "Phantom Nova";
