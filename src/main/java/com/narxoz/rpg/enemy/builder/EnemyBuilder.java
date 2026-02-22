@@ -1,4 +1,4 @@
-package main.java.com.narxoz.rpg.builder;
+package main.java.com.narxoz.rpg.enemy.builder;
 
 import main.java.com.narxoz.rpg.combat.ability.Ability;
 import main.java.com.narxoz.rpg.combat.loot.LootTable;
@@ -23,5 +23,6 @@ public interface EnemyBuilder {
 
     EnemyBuilder withFactory(EnemyComponentFactory factory);
 
+    void validate();
     Enemy build();
 }

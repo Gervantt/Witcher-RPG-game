@@ -9,7 +9,7 @@ import java.util.Map;
 
 public class Detlaff extends BossEnemy{
 
-    protected Detlaff(String name, int level, int health, int damage, int defence, int agility, List<Ability> abilities, LootTable lootTable, AIBehavior aiBehavior, String loreDescription, List<String> phases, Map<String, String> specialProperties) {
+    public Detlaff(String name, int level, int health, int damage, int defence, int agility, List<Ability> abilities, LootTable lootTable, AIBehavior aiBehavior, String loreDescription, List<String> phases, Map<String, String> specialProperties) {
         super(name, level, health, damage, defence, agility, abilities, lootTable, aiBehavior, loreDescription, phases, specialProperties);
     }
 

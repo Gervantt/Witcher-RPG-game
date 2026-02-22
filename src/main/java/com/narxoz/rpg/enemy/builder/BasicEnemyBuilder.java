@@ -1,4 +1,4 @@
-package main.java.com.narxoz.rpg.builder;
+package main.java.com.narxoz.rpg.enemy.builder;
 
 import main.java.com.narxoz.rpg.combat.ability.Ability;
 import main.java.com.narxoz.rpg.combat.loot.LootTable;
@@ -84,6 +84,12 @@ public class BasicEnemyBuilder implements EnemyBuilder{
         return this;
     }
 
+    public EnemyBuilder withType(EnemyType type) {
+        this.type = type;
+        return this;
+    }
+
+    @Override
     public void validate() {
         if (name == null || name.isBlank()) throw new IllegalStateException("Enemy name is mandatory.");
         if (level < 0)  throw new IllegalStateException("Enemy level is mandatory (>= 0).");
