@@ -13,8 +13,7 @@ import main.java.com.narxoz.rpg.factory.enemiesfactory.WildHuntFactory;
 
 public class EnemyDirector {
 
-    private EnemyDirector() {}
-
+    public EnemyDirector() {}
     public static Enemy createMinion() {
         return new BasicEnemyBuilder()
                 .withType(EnemyType.NEKKER)

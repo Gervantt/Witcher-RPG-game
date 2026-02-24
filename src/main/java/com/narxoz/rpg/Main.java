@@ -1,6 +1,8 @@
 package main.java.com.narxoz.rpg;
 
 import main.java.com.narxoz.rpg.character.Character;
+import main.java.com.narxoz.rpg.enemy.Enemy;
+import main.java.com.narxoz.rpg.enemy.director.EnemyDirector;
 import main.java.com.narxoz.rpg.equipment.armor.Armor;
 import main.java.com.narxoz.rpg.equipment.weapon.Weapon;
 import main.java.com.narxoz.rpg.factory.characterfactory.CharacterFactory;
@@ -10,6 +12,7 @@ import main.java.com.narxoz.rpg.factory.characterfactory.WitcherFactory;
 
 public class Main {
     public static void main(String[] args) {
+
         CharacterFactory characterFactory = new WitcherFactory();
         Character character = characterFactory.createCharacter("Geralt");
 
@@ -35,9 +38,25 @@ public class Main {
         System.out.println(armor.specialEnchantment(character));
 
         System.out.println("\nStats after enchantment:");
-         character.displayStats();
+        character.displayStats();
 
         System.out.println("\nUsing special ability...");
         character.useSpecialAbility();
+
+        System.out.println("\n\n========================================");
+        System.out.println("           ENEMY BESTIARY");
+        System.out.println("========================================");
+
+        displayEnemy(EnemyDirector.createMinion());
+        System.out.println();
+        displayBoss(EnemyDirector.createRaidBoss());
+    }
+
+    private static void displayEnemy(Enemy enemy) {
+        enemy.display();
+    }
+
+    private static void displayBoss(Enemy boss) {
+        boss.display();
     }
 }
