@@ -1,7 +1,7 @@
 package main.java.com.narxoz.rpg.enemy.director;
 
-import main.java.com.narxoz.rpg.combat.loot.VampireLootTable;
-import main.java.com.narxoz.rpg.combat.loot.WildHuntLootTable;
+import main.java.com.narxoz.rpg.loot.VampireLootTable;
+import main.java.com.narxoz.rpg.loot.WildHuntLootTable;
 import main.java.com.narxoz.rpg.enemy.Enemy;
 import main.java.com.narxoz.rpg.enemy.builder.BasicEnemyBuilder;
 import main.java.com.narxoz.rpg.enemy.builder.BossEnemyBuilder;

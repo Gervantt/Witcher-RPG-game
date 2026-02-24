@@ -1,13 +1,13 @@
 package main.java.com.narxoz.rpg.factory.enemiesfactory;
 
 import main.java.com.narxoz.rpg.combat.ability.Ability;
-import main.java.com.narxoz.rpg.combat.loot.LootTable;
+import main.java.com.narxoz.rpg.loot.LootTable;
 import main.java.com.narxoz.rpg.combat.ability.igni.DragonBreath;
 import main.java.com.narxoz.rpg.combat.ability.igni.IgniBlast;
 import main.java.com.narxoz.rpg.combat.ability.igni.IgniShield;
-import main.java.com.narxoz.rpg.combat.loot.VampireLootTable;
-import main.java.com.narxoz.rpg.enemy.ai.AIBehavior;
-import main.java.com.narxoz.rpg.enemy.ai.DefensiveAI;
+import main.java.com.narxoz.rpg.loot.VampireLootTable;
+import main.java.com.narxoz.rpg.ai.AIBehavior;
+import main.java.com.narxoz.rpg.ai.DefensiveAI;
 
 import java.util.Arrays;
 import java.util.List;

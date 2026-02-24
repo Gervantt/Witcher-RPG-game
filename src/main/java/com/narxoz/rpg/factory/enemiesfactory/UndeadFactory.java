@@ -1,13 +1,13 @@
 package main.java.com.narxoz.rpg.factory.enemiesfactory;
 
 import main.java.com.narxoz.rpg.combat.ability.Ability;
-import main.java.com.narxoz.rpg.combat.loot.LootTable;
+import main.java.com.narxoz.rpg.loot.LootTable;
 import main.java.com.narxoz.rpg.combat.ability.yrden.PhantomNova;
 import main.java.com.narxoz.rpg.combat.ability.yrden.ShadowVeil;
 import main.java.com.narxoz.rpg.combat.ability.yrden.YrdenTrap;
-import main.java.com.narxoz.rpg.combat.loot.UndeadLootTable;
-import main.java.com.narxoz.rpg.enemy.ai.AIBehavior;
-import main.java.com.narxoz.rpg.enemy.ai.AggressiveAI;
+import main.java.com.narxoz.rpg.loot.UndeadLootTable;
+import main.java.com.narxoz.rpg.ai.AIBehavior;
+import main.java.com.narxoz.rpg.ai.AggressiveAI;
 
 import java.util.Arrays;
 import java.util.List;

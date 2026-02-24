@@ -1,4 +1,4 @@
-package main.java.com.narxoz.rpg.enemy.ai;
+package main.java.com.narxoz.rpg.ai;
 
 public interface AIBehavior {
     String getBehaviorType();
