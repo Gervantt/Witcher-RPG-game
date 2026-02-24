@@ -1,14 +1,14 @@
 package main.java.com.narxoz.rpg.factory.enemiesfactory;
 
 import main.java.com.narxoz.rpg.combat.ability.Ability;
-import main.java.com.narxoz.rpg.combat.loot.LootTable;
+import main.java.com.narxoz.rpg.loot.LootTable;
 import main.java.com.narxoz.rpg.combat.ability.frost.AardFrostBlast;
 import main.java.com.narxoz.rpg.combat.ability.frost.FrostArmor;
 import main.java.com.narxoz.rpg.combat.ability.frost.GlacialStorm;
 
-import main.java.com.narxoz.rpg.combat.loot.WildHuntLootTable;
-import main.java.com.narxoz.rpg.enemy.ai.AIBehavior;
-import main.java.com.narxoz.rpg.enemy.ai.TacticalAI;
+import main.java.com.narxoz.rpg.loot.WildHuntLootTable;
+import main.java.com.narxoz.rpg.ai.AIBehavior;
+import main.java.com.narxoz.rpg.ai.TacticalAI;
 
 import java.util.Arrays;
 import java.util.List;
