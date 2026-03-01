@@ -1,10 +1,10 @@
 package main.java.com.narxoz.rpg.factory.enemiesfactory;
 
 import main.java.com.narxoz.rpg.combat.ability.Ability;
+import main.java.com.narxoz.rpg.combat.ability.vampire.BatSwarm;
+import main.java.com.narxoz.rpg.combat.ability.vampire.BloodFrenzy;
+import main.java.com.narxoz.rpg.combat.ability.vampire.LifeDrain;
 import main.java.com.narxoz.rpg.loot.LootTable;
-import main.java.com.narxoz.rpg.combat.ability.igni.DragonBreath;
-import main.java.com.narxoz.rpg.combat.ability.igni.IgniBlast;
-import main.java.com.narxoz.rpg.combat.ability.igni.IgniShield;
 import main.java.com.narxoz.rpg.loot.VampireLootTable;
 import main.java.com.narxoz.rpg.ai.AIBehavior;
 import main.java.com.narxoz.rpg.ai.DefensiveAI;
@@ -17,9 +17,7 @@ public class VampireFactory implements EnemyComponentFactory{
     @Override
     public List<Ability> createAbilities() {
         return Arrays.asList(
-                new DragonBreath(),
-                new IgniBlast(),
-                new IgniShield()
+                new BatSwarm(), new BloodFrenzy(), new LifeDrain()
         );
     }
 

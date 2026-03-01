@@ -28,4 +28,5 @@ public class BossPhase {
     public double getDamageMultiplier() { return damageMultiplier; }
     public double getDefenceMultiplier() { return defenceMultiplier; }
     public String getEntranceLine() { return entranceLine; }
+    
 }

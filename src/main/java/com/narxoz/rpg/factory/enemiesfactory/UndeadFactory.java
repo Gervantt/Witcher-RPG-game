@@ -1,6 +1,8 @@
 package main.java.com.narxoz.rpg.factory.enemiesfactory;
 
 import main.java.com.narxoz.rpg.combat.ability.Ability;
+import main.java.com.narxoz.rpg.combat.ability.undead.BloodThirst;
+import main.java.com.narxoz.rpg.combat.ability.undead.GhostMode;
 import main.java.com.narxoz.rpg.loot.LootTable;
 import main.java.com.narxoz.rpg.combat.ability.yrden.PhantomNova;
 import main.java.com.narxoz.rpg.combat.ability.yrden.ShadowVeil;
@@ -17,9 +19,7 @@ public class UndeadFactory implements EnemyComponentFactory{
     @Override
     public List<Ability> createAbilities() {
         return Arrays.asList(
-                new PhantomNova(),
-                new ShadowVeil(),
-                new YrdenTrap()
+                new BloodThirst(), new GhostMode()
         );
     }
 
