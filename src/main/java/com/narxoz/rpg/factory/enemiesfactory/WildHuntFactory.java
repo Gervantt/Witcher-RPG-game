@@ -1,6 +1,9 @@
 package main.java.com.narxoz.rpg.factory.enemiesfactory;
 
 import main.java.com.narxoz.rpg.combat.ability.Ability;
+import main.java.com.narxoz.rpg.combat.ability.wildhunt.BlinkStrike;
+import main.java.com.narxoz.rpg.combat.ability.wildhunt.FrostNova;
+import main.java.com.narxoz.rpg.combat.ability.wildhunt.WhiteFrostCataclysm;
 import main.java.com.narxoz.rpg.loot.LootTable;
 import main.java.com.narxoz.rpg.combat.ability.frost.AardFrostBlast;
 import main.java.com.narxoz.rpg.combat.ability.frost.FrostArmor;
@@ -17,9 +20,7 @@ public class WildHuntFactory implements EnemyComponentFactory{
     @Override
     public List<Ability> createAbilities() {
         return Arrays.asList(
-                new AardFrostBlast(),
-                new FrostArmor(),
-                new GlacialStorm()
+                new BlinkStrike(), new FrostNova(), new WhiteFrostCataclysm()
         );
     }
 

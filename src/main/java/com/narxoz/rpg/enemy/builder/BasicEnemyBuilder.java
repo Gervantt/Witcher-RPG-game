@@ -110,6 +110,7 @@ public class BasicEnemyBuilder implements EnemyBuilder{
             case NEKKER -> new Nekker(name, level, health, damage, defence, agility, abilities, lootTable, aiBehavior);
             case WRAITH -> new Wraith(name, level, health, damage, defence, agility, abilities, lootTable, aiBehavior);
             case GHOUL -> new Ghoul(name, level, health, damage, defence, agility, abilities, lootTable, aiBehavior);
+            case KATAKAN -> new Katakan(name, level, health, damage, defence, agility, abilities, lootTable, aiBehavior);
         };
     }
 }
