@@ -94,6 +94,22 @@ public class HeroCombatantAdapter implements Combatant {
         return signs;
     }
 
+    public void setCurrentHealth(int maxHealth) {
+        this.hero.setHealth(maxHealth);
+    }
+
+    public void setAttackPower(int power) {
+        this.hero.setStrength(power);
+    }
+
+    public void setMagicPower(int power) {
+        this.hero.setMagic(power);
+    }
+
+    public void setAgilityValue(int value) {
+        this.hero.setAgility(value);
+    }
+
     @Override
     public boolean isBoss() {
         return false;

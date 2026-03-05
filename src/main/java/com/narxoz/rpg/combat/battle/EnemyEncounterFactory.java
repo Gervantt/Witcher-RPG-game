@@ -151,6 +151,23 @@ public class EnemyEncounterFactory {
         return new EnemyCombatantAdapter(drowner);
     }
 
+    public static EnemyCombatantAdapter createAlphaDrowner() {
+        Enemy alpha = new BasicEnemyBuilder()
+                .withType(EnemyType.DROWNER)
+                .withName("Drowner Alpha")
+                .withLevel(6)
+                .withHealth(120)
+                .withDamage(22)
+                .withDefence(5)
+                .withAgility(30)
+                .withAbilities(undeadFactory.createAbilities())
+                .withLootTable(undeadFactory.createLootTable())
+                .withAIBehavior(undeadFactory.createAIBehavior())
+                .build();
+
+        return new EnemyCombatantAdapter(alpha);
+    }
+
 
     //  MIXED ENCOUNTER PACKS
 
@@ -162,9 +179,12 @@ public class EnemyEncounterFactory {
         return Arrays.asList(createKatakan(), createEkimmara());
     }
 
-    public static List<Combatant> createNekkerPack() {
-        EnemyCombatantAdapter nekker = createNekkerWarrior();
-        return Arrays.asList(nekker, nekker, nekker);
+    public static List<Combatant> createGhoulPack() {
+        return Arrays.asList(createGhoul(), createGhoul(), createAlghoul());
+    }
+
+    public static List<Combatant> createNekkerGang() {
+        return Arrays.asList(createNekkerWarrior(), createNekkerWarrior(), createNekkerWarrior(), createNekkerWarrior());
     }
 
     public static List<Combatant> createDrownerPack() {
@@ -181,27 +201,10 @@ public class EnemyEncounterFactory {
                 .withAIBehavior(undeadFactory.createAIBehavior())
                 .build();
 
-        Enemy basic = new BasicEnemyBuilder()
-                .withType(EnemyType.DROWNER)
-                .withName("Drowner")
-                .withLevel(4)
-                .withHealth(80)
-                .withDamage(18)
-                .withDefence(3)
-                .withAgility(35)
-                .withAbilities(undeadFactory.createAbilities())
-                .withLootTable(undeadFactory.createLootTable())
-                .withAIBehavior(undeadFactory.createAIBehavior())
-                .build();
-
-        Enemy basic2 = basic.clone();
-        Enemy basic3 = basic.clone();
-
         return Arrays.asList(
                 new EnemyCombatantAdapter(alpha),
-                new EnemyCombatantAdapter(basic),
-                new EnemyCombatantAdapter(basic2),
-                new EnemyCombatantAdapter(basic3)
+                createDrowner(),
+                createDrowner()
         );
     }
 }

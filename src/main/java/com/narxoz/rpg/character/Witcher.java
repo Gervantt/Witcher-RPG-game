@@ -9,15 +9,13 @@ public class Witcher implements Character {
     private int strength;
     private int magic;
     private int agility;
-    private Weapon weapon;
-    private Armor armor;
 
     public Witcher(String name) {
         this.name = name;
-        this.health = 200;
-        this.strength = 80;
-        this.magic = 40;
-        this.agility = 70;
+        this.health = 300;
+        this.strength = 150;
+        this.magic = 80;
+        this.agility = 100;
     }
 
     @Override
@@ -93,7 +91,6 @@ public class Witcher implements Character {
     public void equipWeapon(Weapon weapon) {
         System.out.println("=== "+name+" equipped new weapon! ===");
         System.out.println("=== "+weapon.getWeaponInfo()+" ===");
-        this.weapon = weapon;
         strength += weapon.getDamage();
         System.out.println("=== DAMAGE INCREASED: "+strength+" ===");
     }
@@ -102,7 +99,6 @@ public class Witcher implements Character {
     public void equipArmor(Armor armor) {
         System.out.println("=== "+name+" equipped new armor! ===");
         System.out.println("=== "+armor.getArmorInfo()+" ===");
-        this.armor = armor;
         health += armor.getDefence();
         System.out.println("=== HEALTH INCREASED: "+health+" ===");
     }

@@ -9,15 +9,13 @@ public class ElfArcher implements Character {
     private int strength;
     private int magic;
     private int agility;
-    private Weapon weapon;
-    private Armor armor;
 
     public ElfArcher(String name) {
         this.name = name;
-        this.health = 150;
-        this.strength = 60;
-        this.magic = 10;
-        this.agility = 80;
+        this.health = 250;
+        this.strength = 120;
+        this.magic = 50;
+        this.agility = 150;
     }
 
     @Override
@@ -90,7 +88,6 @@ public class ElfArcher implements Character {
     public void equipWeapon(Weapon weapon) {
         System.out.println("=== "+name+" equipped new weapon! ===");
         System.out.println("=== "+weapon.getWeaponInfo()+" ===");
-        this.weapon = weapon;
         strength += weapon.getDamage();
         System.out.println("=== STRENGTH INCREASED: "+strength+" ===");
     }
@@ -99,7 +96,6 @@ public class ElfArcher implements Character {
     public void equipArmor(Armor armor) {
         System.out.println("=== "+name+" equipped new armor! ===");
         System.out.println("=== "+armor.getArmorInfo()+" ===");
-        this.armor = armor;
         health += armor.getDefence();
         System.out.println("=== HEALTH INCREASED: "+health+" ===");
     }
