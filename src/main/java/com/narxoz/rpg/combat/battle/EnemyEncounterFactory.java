@@ -188,21 +188,8 @@ public class EnemyEncounterFactory {
     }
 
     public static List<Combatant> createDrownerPack() {
-        Enemy alpha = new BasicEnemyBuilder()
-                .withType(EnemyType.DROWNER)
-                .withName("Drowner Alpha")
-                .withLevel(6)
-                .withHealth(120)
-                .withDamage(22)
-                .withDefence(5)
-                .withAgility(30)
-                .withAbilities(undeadFactory.createAbilities())
-                .withLootTable(undeadFactory.createLootTable())
-                .withAIBehavior(undeadFactory.createAIBehavior())
-                .build();
-
         return Arrays.asList(
-                new EnemyCombatantAdapter(alpha),
+                createAlphaDrowner(),
                 createDrowner(),
                 createDrowner()
         );
