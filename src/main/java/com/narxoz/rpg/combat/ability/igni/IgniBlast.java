@@ -4,7 +4,7 @@ import main.java.com.narxoz.rpg.combat.ability.Ability;
 
 public class IgniBlast implements Ability {
     private final String name = "Igni Blast";
-    private final int damage = 75;
+    private final int damage = 105;
     private final String description = "Channels the Igni sign into a scorching wave of fire, dealing AoE damage and applying burn to all nearby enemies.";
 
     @Override

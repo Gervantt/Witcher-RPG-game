@@ -1,0 +1,169 @@
+@startuml BattlePackage
+
+skinparam classAttributeIconSize 0
+skinparam shadowing false
+
+package "combat.battle" {
+
+    interface Combatant {
+        + getName(): String
+        + getMaxHealth(): int
+        + getCurrentHealth(): int
+        + getAttackPower(): int
+        + getMagicPower(): int
+        + getDefencePower(): int
+        + getAgilityValue(): int
+        + takeDamage(amount: int): void
+        + heal(amount: int): void
+        + isAlive(): boolean
+        + getAbilities(): List<Ability>
+        + isBoss(): boolean
+        + getPhaseName(): String
+        + checkPhaseTransition(): boolean
+        + getStatusBar(): String
+    }
+
+    class HeroCombatantAdapter {
+        - hero: Character
+        - maxHealth: int
+        - signs: List<Ability>
+        - potionUsed: boolean
+        + HeroCombatantAdapter(hero: Character)
+        + HeroCombatantAdapter(hero: Character, customSigns: List<Ability>)
+        + getHero(): Character
+        + hasPotionAvailable(): boolean
+        + usePotionCharge(): void
+    }
+
+    class EnemyCombatantAdapter {
+        - enemy: Enemy
+        - currentHealth: int
+        - maxHealth: int
+        + EnemyCombatantAdapter(enemy: Enemy)
+        + getEnemy(): Enemy
+    }
+
+    class BossCombatantAdapter {
+        - enemy: Enemy
+        - currentHealth: int
+        - maxHealth: int
+        - phases: List<BossPhase>
+        - currentPhaseIndex: int
+        - lastPhaseTransitionMessage: String
+        + BossCombatantAdapter(enemy: Enemy, phases: List<BossPhase>)
+        + consumePhaseTransitionMessage(): String
+        + getCurrentPhase(): BossPhase
+        + getCurrentPhaseIndex(): int
+        + getTotalPhases(): int
+        + getEnemy(): Enemy
+    }
+
+    class BossPhase {
+        - phaseName: String
+        - hpThreshold: double
+        - phaseAbilities: List<Ability>
+        - damageMultiplier: double
+        - defenceMultiplier: double
+        - entranceLine: String
+        + getPhaseName(): String
+        + getHpThreshold(): double
+        + getPhaseAbilities(): List<Ability>
+        + getDamageMultiplier(): double
+        + getDefenceMultiplier(): double
+        + getEntranceLine(): String
+    }
+
+    class BattleEngine <<Singleton>> {
+        - {static} instance: BattleEngine
+        - random: Random
+        - combatLog: List<String>
+        - specialUsesLeft: int
+        - {static} MAX_SPECIAL_USES: int = 3
+        - {static} SPECIAL_BASE_DMG: int = 200
+        - BattleEngine()
+        + {static} getInstance(): BattleEngine
+        + setRandomSeed(seed: long): void
+        + reset(player: HeroCombatantAdapter): void
+        + runEncounter(player: Combatant, enemy: Combatant, scanner: Scanner): EncounterResult
+        - doPlayerTurn(player: Combatant, enemy: Combatant, enemyDefending: boolean, scanner: Scanner): boolean
+        - doEnemyTurn(enemy: Combatant, player: Combatant, playerDefending: boolean): boolean
+        - pickEnemyAction(enemy: Combatant): CombatAction
+        - checkGhostMode(dmg: int, target: Combatant): int
+        - checkBloodThirst(dmg: int, attacker: Combatant): int
+        - checkBossPhase(enemy: Combatant): void
+        - rollDamage(base: int): int
+    }
+
+    class EncounterResult {
+        - winner: Combatant
+        - loser: Combatant
+        - totalRounds: int
+        - battleLog: List<String>
+        + getWinner(): Combatant
+        + getLoser(): Combatant
+        + getTotalRounds(): int
+        + getBattleLog(): List<String>
+        + printSummary(): void
+    }
+
+    enum CombatAction {
+        SWORD_ATTACK
+        SIGN_CAST
+        DODGE
+        DEFEND
+        USE_POTION
+        SPECIAL
+        - displayName: String
+        - description: String
+        + getDisplayName(): String
+        + getDescription(): String
+    }
+
+    class WeaknessChart <<utility>> {
+        + {static} WEAKNESS_MULTIPLIER: double = 1.5
+        - {static} WEAKNESS_MAP: Map<String, String>
+        + {static} isWeak(enemyName: String, ability: Ability): boolean
+        + {static} getWeaknessSchool(enemyName: String): String
+    }
+
+    class EnemyEncounterFactory <<factory>> {
+        + {static} createNoonwraith(): EnemyCombatantAdapter
+        + {static} createNightwraith(): EnemyCombatantAdapter
+        + {static} createKatakan(): EnemyCombatantAdapter
+        + {static} createEkimmara(): EnemyCombatantAdapter
+        + {static} createGhoul(): EnemyCombatantAdapter
+        + {static} createAlghoul(): EnemyCombatantAdapter
+        + {static} createNekkerWarrior(): EnemyCombatantAdapter
+        + {static} createDrowner(): EnemyCombatantAdapter
+        + {static} createGraveyardHaunt(): List<Combatant>
+        + {static} createVampireNest(): List<Combatant>
+        + {static} createNekkerPack(): List<Combatant>
+        + {static} createDrownerPack(): List<Combatant>
+    }
+
+    class BossEncounterFactory <<factory>> {
+        + {static} createEredin(): BossCombatantAdapter
+        + {static} createImlerith(): BossCombatantAdapter
+        + {static} createDetlaff(): BossCombatantAdapter
+    }
+}
+
+HeroCombatantAdapter ..|> Combatant
+EnemyCombatantAdapter ..|> Combatant
+BossCombatantAdapter ..|> Combatant
+
+BattleEngine --> Combatant : uses
+BattleEngine --> CombatAction : uses
+BattleEngine --> EncounterResult : creates
+BattleEngine --> WeaknessChart : checks weakness
+
+BossCombatantAdapter --> BossPhase : has phases
+
+EnemyEncounterFactory ..> EnemyCombatantAdapter : creates
+BossEncounterFactory ..> BossCombatantAdapter : creates
+
+HeroCombatantAdapter --> "character" Character : wraps
+EnemyCombatantAdapter --> "enemy" Enemy : wraps
+BossCombatantAdapter --> "enemy" Enemy : wraps
+
+@enduml

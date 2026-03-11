@@ -4,7 +4,7 @@ import main.java.com.narxoz.rpg.combat.ability.Ability;
 
 public class AardFrostBlast implements Ability {
     private final String name = "Aard Frost Blast";
-    private final int damage = 65;
+    private final int damage = 100;
     private final String description = "A powerful blast of frozen air channeling the Aard sign's force, dealing damage and slowing all struck enemies.";
 
     @Override

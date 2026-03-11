@@ -9,15 +9,13 @@ public class Mage implements Character{
     private int strength;
     private int magic;
     private int agility;
-    private Weapon weapon;
-    private Armor armor;
 
     public Mage(String name) {
         this.name = name;
-        this.health = 120;
-        this.strength = 40;
-        this.magic = 100;
-        this.agility = 50;
+        this.health = 220;
+        this.strength = 100;
+        this.magic = 200;
+        this.agility = 100;
     }
     @Override
     public String getName() {
@@ -85,7 +83,6 @@ public class Mage implements Character{
     public void equipWeapon(Weapon weapon) {
         System.out.println("=== "+name+" equipped new weapon! ===");
         System.out.println("=== "+weapon.getWeaponInfo()+" ===");
-        this.weapon = weapon;
         strength += weapon.getDamage();
         System.out.println("=== STRENGTH INCREASED: " + strength+" ===");
     }
@@ -94,7 +91,6 @@ public class Mage implements Character{
     public void equipArmor(Armor armor) {
         System.out.println("=== "+name+" equipped new armor! ===");
         System.out.println("=== "+armor.getArmorInfo()+" ===");
-        this.armor = armor;
         health += armor.getDefence();
         System.out.println("=== HEALTH INCREASED: " + health+" ===");
     }

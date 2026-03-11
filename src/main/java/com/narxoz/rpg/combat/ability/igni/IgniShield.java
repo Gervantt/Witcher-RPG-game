@@ -4,7 +4,7 @@ import main.java.com.narxoz.rpg.combat.ability.Ability;
 
 public class IgniShield implements Ability {
     private final String name = "Igni Shield";
-    private final int damage = 20;
+    private final int damage = 100;
     private final String description = "Conjures a blazing barrier of Igni fire that deflects incoming attacks and burns those who strike the caster.";
 
     @Override

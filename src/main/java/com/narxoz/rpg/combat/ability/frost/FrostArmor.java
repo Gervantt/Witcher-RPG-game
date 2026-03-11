@@ -4,7 +4,7 @@ import main.java.com.narxoz.rpg.combat.ability.Ability;
 
 public class FrostArmor implements Ability {
     private final String name = "Frost Armor";
-    private final int damage = 25;
+    private final int damage = 85;
     private final String description = "Encases the caster in a layer of enchanted ice, deflecting blows and chilling any attacker that makes contact.";
 
     @Override
