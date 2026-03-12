@@ -13,7 +13,7 @@ public class Witcher implements Character {
     public Witcher(String name) {
         this.name = name;
         this.health = 300;
-        this.strength = 150;
+        this.strength = 120;
         this.magic = 80;
         this.agility = 100;
     }
@@ -77,10 +77,10 @@ public class Witcher implements Character {
     public void useSpecialAbility() {
         System.out.println("=== SPECIAL ABILITY USED ===");
         System.out.println(name + " drinks a battle potion that surges through his veins, boosting his Strength and Agility for a short time, but slightly reducing his Health due to toxicity.");
-        health -= 20;
-        strength += 15;
-        agility += 15;
-        magic += 15;
+        health -= 40;
+        strength += 35;
+        agility += 35;
+        magic += 35;
         System.out.println("=== Health: " + health+" ===");
         System.out.println("=== Strength: " + strength+" ===");
         System.out.println("=== Agility: " + agility+" ===");

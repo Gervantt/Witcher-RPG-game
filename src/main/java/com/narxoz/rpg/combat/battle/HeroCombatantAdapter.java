@@ -5,6 +5,9 @@ import main.java.com.narxoz.rpg.combat.ability.Ability;
 import main.java.com.narxoz.rpg.combat.ability.igni.IgniBlast;
 import main.java.com.narxoz.rpg.combat.ability.frost.AardFrostBlast;
 import main.java.com.narxoz.rpg.combat.ability.yrden.YrdenTrap;
+import main.java.com.narxoz.rpg.combat.bridge.AreaSkill;
+import main.java.com.narxoz.rpg.combat.bridge.FireEffect;
+import main.java.com.narxoz.rpg.combat.bridge.IceEffect;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,6 +27,8 @@ public class HeroCombatantAdapter implements Combatant {
         signs.add(new IgniBlast());
         signs.add(new AardFrostBlast());
         signs.add(new YrdenTrap());
+        signs.add(new AreaSkill("Igni Inferno", 35, new FireEffect()));
+        signs.add(new AreaSkill("Blizzard", 30, new IceEffect()));
     }
 
     public HeroCombatantAdapter(Character hero, List<Ability> customSigns) {

@@ -23,6 +23,11 @@ public abstract class Skill implements Ability {
     @Override
     public String getDescription() { return effect.getDescription(); }
 
+    @Override
+    public Ability clone(){
+        return this;
+    }
+
     public EffectImplementor getEffect() { return effect; }
 
     public abstract boolean isArea();

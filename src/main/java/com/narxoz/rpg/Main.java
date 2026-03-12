@@ -118,10 +118,9 @@ public class Main {
 
             switch (choice) {
                 case 1: {
-                    List<Combatant> ghouls = EnemyEncounterFactory.createGhoulPack();
-                    for(int i = 0; i < ghouls.size(); i++) {
-                        engine.runEncounter(heroCombatant, ghouls.get(i), scanner);
-                    }
+                    CombatGroup pack = new CombatGroup("Nekker Gang",
+                            EnemyEncounterFactory.createNekkerGang().toArray(new Combatant[0]));
+                    engine.runEncounter(heroCombatant, pack, scanner);
                     break;
                 }
                 case 2: {
@@ -130,23 +129,23 @@ public class Main {
                     break;
                 }
                 case 3: {
-                    List<Combatant> vampires = EnemyEncounterFactory.createVampireNest();
-                    for(int i = 0; i < vampires.size(); i++) {
-                        engine.runEncounter(heroCombatant, vampires.get(i), scanner);
-                    }
+                    CombatGroup nest = new CombatGroup("Vampire Nest",
+                            EnemyEncounterFactory.createVampireNest().toArray(new Combatant[0]));
+                    engine.runEncounter(heroCombatant, nest, scanner);
                     break;
                 }
                 case 4: {
-                    List<Combatant> drowners = EnemyEncounterFactory.createDrownerPack();
-                    for(int i = 0; i < drowners.size(); i++) {
-                        engine.runEncounter(heroCombatant, drowners.get(i), scanner);
-                    }
+                    CombatGroup pack = new CombatGroup("Drowner Pack",
+                            EnemyEncounterFactory.createDrownerPack().toArray(new Combatant[0]));
+                    engine.runEncounter(heroCombatant, pack, scanner);
+                    break;
                 }
-                case 5:
-                    List<Combatant> ghosts = EnemyEncounterFactory.createGraveyardHaunt();
-                    for(int i = 0; i < ghosts.size(); i++) {
-                        engine.runEncounter(heroCombatant, ghosts.get(i), scanner);
-                    }
+                case 5: {
+                    CombatGroup haunt = new CombatGroup("Graveyard Haunt",
+                            EnemyEncounterFactory.createGraveyardHaunt().toArray(new Combatant[0]));
+                    engine.runEncounter(heroCombatant, haunt, scanner);
+                    break;
+                }
                 case 6: {
                     BossCombatantAdapter imlerith = BossEncounterFactory.createImlerith();
                     engine.runEncounter(heroCombatant, imlerith, scanner);
@@ -170,7 +169,7 @@ public class Main {
                     break;
                 }
                 case 10: {
-                    System.out.println(heroCombatant.getName() +" walks away...");
+                    System.out.println(heroCombatant.getName() + " walks away...");
                     scanner.close();
                     return;
                 }

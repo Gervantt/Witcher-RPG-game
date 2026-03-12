@@ -4,6 +4,7 @@ import main.java.com.narxoz.rpg.combat.ability.Ability;
 import main.java.com.narxoz.rpg.combat.ability.undead.GhostMode;
 import main.java.com.narxoz.rpg.combat.ability.vampire.LifeDrain;
 import main.java.com.narxoz.rpg.combat.ability.undead.BloodThirst;
+import main.java.com.narxoz.rpg.combat.bridge.Skill;
 import main.java.com.narxoz.rpg.enemy.Enemy;
 
 import java.util.*;
@@ -32,9 +33,6 @@ public class BattleEngine {
         combatLog.clear();
         specialUsesLeft = 3;
         player.setCurrentHealth(player.getMaxHealth());
-        player.setAttackPower(player.getHero().getStrength());
-        player.setAgilityValue(player.getHero().getAgility());
-        player.setMagicPower(player.getHero().getMagic());
     }
 
     public EncounterResult runEncounter(Combatant player, Combatant enemy, Scanner scanner) {
@@ -131,7 +129,8 @@ public class BattleEngine {
                 for (int i = 0; i < abilities.size(); i++) {
                     Ability a = abilities.get(i);
                     String tag = WeaknessChart.isWeak(enemy.getName(), a) ? " [WEAK!]" : "";
-                    System.out.println("  [" + (i+1) + "] " + a.getName() + " (Dmg:" + a.getDamage() + ")" + tag);
+                    String aoe = (a instanceof Skill && ((Skill) a).isArea()) ? " [AOE]" : "";
+                    System.out.println("  [" + (i+1) + "] " + a.getName() + " (Dmg:" + a.getDamage() + ")" + tag + aoe);
                 }
                 System.out.print("  > ");
                 Ability chosen = abilities.get(readInt(scanner, 1, abilities.size()) - 1);
@@ -142,8 +141,14 @@ public class BattleEngine {
                     log("WEAKNESS EXPLOITED! x1.5 damage!");
                 }
                 signDmg = checkGhostMode(signDmg, enemy);
-                enemy.takeDamage(signDmg);
-                log(player.getName() + " casts " + chosen.getName() + " for " + signDmg + " damage!");
+
+                if (chosen instanceof Skill && ((Skill) chosen).isArea() && enemy instanceof CombatGroup) {
+                    ((CombatGroup) enemy).takeAreaDamage(signDmg);
+                    log(player.getName() + " casts " + chosen.getName() + " hitting ALL enemies for " + signDmg + " each!");
+                } else {
+                    enemy.takeDamage(signDmg);
+                    log(player.getName() + " casts " + chosen.getName() + " for " + signDmg + " damage!");
+                }
                 break;
 
             case 3: // defend
@@ -182,17 +187,14 @@ public class BattleEngine {
         }
 
         int dmg;
-        String label;
 
         if (action == CombatAction.SIGN_CAST) {
             Ability ability = enemy.getAbilities().get(random.nextInt(enemy.getAbilities().size()));
             dmg = ability.getDamage() + (enemy.getMagicPower() / 4);
-            label = enemy.getName() + " casts " + ability.getName();
-
             if (playerDefending) { dmg = (int)(dmg * 0.4); log(player.getName() + " blocks! (-60%)"); }
             dmg = checkBloodThirst(dmg, enemy);
             player.takeDamage(dmg);
-            log(label + " for " + dmg + " damage!");
+            log(enemy.getName() + " casts " + ability.getName() + " for " + dmg + " damage!");
 
             if (ability instanceof LifeDrain) {
                 int heal = (int)(dmg * LifeDrain.HEAL_PERCENT);
@@ -262,6 +264,11 @@ public class BattleEngine {
     }
 
     private String getAIType(Combatant c) {
+        if (c instanceof CombatGroup) {
+            List<Combatant> alive = ((CombatGroup) c).getAliveMembers();
+            if (!alive.isEmpty()) return getAIType(alive.get(0));
+            return "aggressive";
+        }
         Enemy e = null;
         if (c instanceof EnemyCombatantAdapter) e = ((EnemyCombatantAdapter) c).getEnemy();
         else if (c instanceof BossCombatantAdapter) e = ((BossCombatantAdapter) c).getEnemy();

@@ -72,7 +72,7 @@ public class Mage implements Character{
     public void useSpecialAbility() {
         System.out.println("=== SPECIAL ABILITY USED ===");
         System.out.println(name + " sends a Fireball that wipes out everything in the radius of 150 meters, but loses the Magic Powers for a short time");
-        magic -= 80;
+        magic += 80;
         System.out.println("=== Health: " + health+" ===");
         System.out.println("=== Strength: " + strength+" ===");
         System.out.println("=== Agility: " + agility+" ===");
