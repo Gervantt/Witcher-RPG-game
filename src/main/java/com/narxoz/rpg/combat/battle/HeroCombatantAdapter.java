@@ -5,6 +5,9 @@ import main.java.com.narxoz.rpg.combat.ability.Ability;
 import main.java.com.narxoz.rpg.combat.ability.igni.IgniBlast;
 import main.java.com.narxoz.rpg.combat.ability.frost.AardFrostBlast;
 import main.java.com.narxoz.rpg.combat.ability.yrden.YrdenTrap;
+import main.java.com.narxoz.rpg.combat.bridge.AreaSkill;
+import main.java.com.narxoz.rpg.combat.bridge.FireEffect;
+import main.java.com.narxoz.rpg.combat.bridge.IceEffect;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,7 +15,7 @@ import java.util.List;
 public class HeroCombatantAdapter implements Combatant {
 
     private final Character hero;
-    private final int maxHealth;
+    private int maxHealth;
     private final List<Ability> signs;
     private boolean potionUsed = false;
 
@@ -20,16 +23,17 @@ public class HeroCombatantAdapter implements Combatant {
         this.hero = hero;
         this.maxHealth = hero.getHealth();
         this.signs = new ArrayList<>();
-
         signs.add(new IgniBlast());
         signs.add(new AardFrostBlast());
         signs.add(new YrdenTrap());
+        signs.add(new AreaSkill("Igni Inferno", 35, new FireEffect()));
+        signs.add(new AreaSkill("Blizzard", 30, new IceEffect()));
     }
 
     public HeroCombatantAdapter(Character hero, List<Ability> customSigns) {
         this.hero = hero;
         this.maxHealth = hero.getHealth();
-        this.signs = customSigns;
+        this.signs = customSigns != null ? customSigns : new ArrayList<>();
     }
 
     @Override
@@ -47,16 +51,19 @@ public class HeroCombatantAdapter implements Combatant {
         return hero.getHealth();
     }
 
+    /** Translates Character.getStrength() -> Combatant.getAttackPower() */
     @Override
     public int getAttackPower() {
         return hero.getStrength();
     }
 
+    /** Translates Character.getMagic() -> Combatant.getMagicPower() */
     @Override
     public int getMagicPower() {
         return hero.getMagic();
     }
 
+    /** Heroes have no explicit defence stat, so we derive it from agility */
     @Override
     public int getDefencePower() {
         return hero.getAgility() / 3;
@@ -67,6 +74,7 @@ public class HeroCombatantAdapter implements Combatant {
         return hero.getAgility();
     }
 
+    /** Translates Combatant.takeDamage() -> Character.setHealth() */
     @Override
     public void takeDamage(int amount) {
         int reduced = Math.max(0, amount - getDefencePower());
@@ -76,12 +84,17 @@ public class HeroCombatantAdapter implements Combatant {
 
     @Override
     public void heal(int amount) {
-        if (!hasPotionAvailable()) {
-            return;
-        }
         int newHp = Math.min(maxHealth, hero.getHealth() + amount);
         hero.setHealth(newHp);
-        usePotionCharge();
+    }
+
+    public void increaseMaxHealth(int amount) {
+        maxHealth += amount;
+        hero.setHealth(hero.getHealth() + amount);
+    }
+
+    public void setCurrentHealth(int hp) {
+        hero.setHealth(hp);
     }
 
     @Override
@@ -92,22 +105,6 @@ public class HeroCombatantAdapter implements Combatant {
     @Override
     public List<Ability> getAbilities() {
         return signs;
-    }
-
-    public void setCurrentHealth(int maxHealth) {
-        this.hero.setHealth(maxHealth);
-    }
-
-    public void setAttackPower(int power) {
-        this.hero.setStrength(power);
-    }
-
-    public void setMagicPower(int power) {
-        this.hero.setMagic(power);
-    }
-
-    public void setAgilityValue(int value) {
-        this.hero.setAgility(value);
     }
 
     @Override
@@ -125,6 +122,7 @@ public class HeroCombatantAdapter implements Combatant {
         return false;
     }
 
+    /** Access to underlying hero for special ability use */
     public Character getHero() {
         return hero;
     }

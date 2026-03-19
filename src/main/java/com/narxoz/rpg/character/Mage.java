@@ -12,9 +12,9 @@ public class Mage implements Character{
 
     public Mage(String name) {
         this.name = name;
-        this.health = 220;
-        this.strength = 100;
-        this.magic = 200;
+        this.health = 120;
+        this.strength = 55;
+        this.magic = 100;
         this.agility = 100;
     }
     @Override
@@ -72,7 +72,7 @@ public class Mage implements Character{
     public void useSpecialAbility() {
         System.out.println("=== SPECIAL ABILITY USED ===");
         System.out.println(name + " sends a Fireball that wipes out everything in the radius of 150 meters, but loses the Magic Powers for a short time");
-        magic -= 80;
+        magic += 80;
         System.out.println("=== Health: " + health+" ===");
         System.out.println("=== Strength: " + strength+" ===");
         System.out.println("=== Agility: " + agility+" ===");

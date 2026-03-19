@@ -17,10 +17,10 @@ public class WildHuntLootTable implements LootTable {
     }
 
     @Override
-    public int getGoldDrop() { return 400; }
+    public int getGoldDrop() { return 250; }
 
     @Override
-    public int getExperienceDrop() { return 1200; }
+    public int getExperienceDrop() { return 300; }
 
     @Override
     public LootTable clone() { return new WildHuntLootTable(); }
