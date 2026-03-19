@@ -17,10 +17,10 @@ public class VampireLootTable implements LootTable {
     }
 
     @Override
-    public int getGoldDrop() { return 250; }
+    public int getGoldDrop() { return 50; }
 
     @Override
-    public int getExperienceDrop() { return 350; }
+    public int getExperienceDrop() { return 150; }
 
     @Override
     public LootTable clone() { return new VampireLootTable(); }

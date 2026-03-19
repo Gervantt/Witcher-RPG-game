@@ -12,8 +12,8 @@ public class ElfArcher implements Character {
 
     public ElfArcher(String name) {
         this.name = name;
-        this.health = 250;
-        this.strength = 120;
+        this.health = 130;
+        this.strength = 65;
         this.magic = 50;
         this.agility = 150;
     }

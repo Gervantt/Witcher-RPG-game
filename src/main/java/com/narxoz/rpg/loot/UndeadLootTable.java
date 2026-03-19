@@ -16,10 +16,10 @@ public class UndeadLootTable implements LootTable {
     }
 
     @Override
-    public int getGoldDrop() { return 80; }
+    public int getGoldDrop() { return 20; }
 
     @Override
-    public int getExperienceDrop() { return 120; }
+    public int getExperienceDrop() { return 60; }
 
     @Override
     public LootTable clone() { return new UndeadLootTable(); }

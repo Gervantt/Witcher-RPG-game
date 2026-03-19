@@ -12,9 +12,9 @@ public class Mage implements Character{
 
     public Mage(String name) {
         this.name = name;
-        this.health = 220;
-        this.strength = 100;
-        this.magic = 200;
+        this.health = 120;
+        this.strength = 55;
+        this.magic = 100;
         this.agility = 100;
     }
     @Override

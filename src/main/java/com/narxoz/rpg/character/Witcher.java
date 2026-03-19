@@ -12,8 +12,8 @@ public class Witcher implements Character {
 
     public Witcher(String name) {
         this.name = name;
-        this.health = 300;
-        this.strength = 120;
+        this.health = 150;
+        this.strength = 75;
         this.magic = 80;
         this.agility = 100;
     }

@@ -16,10 +16,10 @@ public class HigherVampireLootTable implements LootTable {
     public List<String> getItems() { return items; }
 
     @Override
-    public int getGoldDrop() { return 500; }
+    public int getGoldDrop() { return 200; }
 
     @Override
-    public int getExperienceDrop() { return 2000; }
+    public int getExperienceDrop() { return 250; }
 
     @Override
     public LootTable clone() { return new HigherVampireLootTable(); }
